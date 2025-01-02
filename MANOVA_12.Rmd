@@ -1,0 +1,68 @@
+---
+title: "MANOVA12"
+author: "Reem"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Step 1: Initialize R Script Files for Functions and Tests
+library(usethis)
+
+# Create function scripts
+use_r("two_way_manova")
+use_r("one_way_manova")
+use_r("compute_W_B_TwoWay")
+use_r("compute_W_B")
+use_r("plot")
+
+# Create test scripts
+use_test("plot")
+use_test("two_way_manova")
+use_test("one_way_manova")
+use_test("compute_W_B_TwoWay")
+use_test("compute_W_B")
+```
+```{r}
+# Step 2: Add Documentation
+# Install roxygen2 if not already installed
+if (!requireNamespace("roxygen2", quietly = TRUE)) {
+  install.packages("roxygen2")
+}
+
+# Generate documentation using roxygen2
+library(roxygen2)
+roxygen2::roxygenise()
+
+```
+```{r}
+# Step 3: Generate Package Documentation
+library(devtools)
+devtools::document()
+```
+```{r}
+# Step 4: Build the Package
+devtools::build()
+```
+
+```{r}
+# Step 5: Check the Package for Errors and Warnings
+devtools::check()
+```
+
+```{r}
+# Step 6: Install the Package Locally
+devtools::install()
+```
+```{r}
+# Step 7: Run All Tests in the Package
+if (!requireNamespace("testthat", quietly = TRUE)) {
+  install.packages("testthat")
+}
+devtools::test()
+```
+

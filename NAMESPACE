@@ -1,1 +1,5 @@
-exportPattern("^[[:alpha:]]+")
+export(One_way_MANOVA)
+export(Two_way_MANOVA)
+export(Compute_WB)
+export(Plot_Group_Differences)
+importFrom(stats, lm)
